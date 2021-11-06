@@ -41,8 +41,8 @@ hs_err_pid*
 *.jpg
 *.jpeg
 
-# temp
-*.temp
+# tmp
+*.tmp
 
 # Don't track content of these folders
 Videos/
