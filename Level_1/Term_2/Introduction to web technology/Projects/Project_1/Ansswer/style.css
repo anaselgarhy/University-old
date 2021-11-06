@@ -1,0 +1,114 @@
+/* This is all styles */
+/* Impurt main font family */
+/*@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap');*/
+/* Body styles */
+body{
+    color: #212121; /* Primary color of text */
+    background-color: #fafafa;
+    font-family: Tajawal, Times, serif;
+    font-size: 25px;
+}
+/* Main content styles */
+.main-content{
+    width: 90%;
+    margin: auto;
+    border: 3px solid #00000014;
+    background-color: #ffff;
+}
+/* Chaild content styles */
+.caild-content{
+    width: 95%;
+    margin: auto;
+}
+/* Header style */
+header{
+    margin-bottom:10px;
+}
+/* Logo styles */
+.logo {
+    text-align: center;
+    font-size: 35px;
+    padding-bottom: 10px;
+}
+.logo:hover{
+
+}
+
+/* Navbar styles */
+.navbar {
+    background-color: #00BCD4;
+    overflow: hidden; /* Hidden over contact */
+    border-radius: 10px;
+    box-shadow: 0 8px 10px -6px rgb(0 0 0 / 50%);
+}
+/* Links styles inside navbar */
+.navbar a{
+    color: #FFFFFF; /* Primary color of text */
+    text-decoration: none;
+    font-size: 20px;
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
+    transition: all 0.3s ease-out;
+}
+.navbar a:hover{
+    background-color: #B2EBF2;
+    color: #757575;
+}
+.navbar a.active{
+    background-color: #009688;    
+}
+.navbar a.active:hover{
+    background-color: #BDBDBD;
+    color: #ffff;
+}
+/* Quote styles */
+.quote{
+    margin-top: 15%;
+    margin-bottom: 18.5%;
+    text-align: center;
+    padding: 15px;
+    font-size: 55px;
+    border-radius: 40px;
+    transition: all 0.6s ease-in;
+}
+.quote:hover{
+    background-color: rgb(0 0 0 / 22%);
+    color: #FFFFFF;
+}
+/* About div styles */
+.about{
+    margin-top: 10px;
+}
+.about img {
+    width: 100%;
+    margin: auto;
+    padding-bottom: 4%;
+    border-radius: 15px;
+    width:  70% !important;
+    padding-left: 20%;
+    padding-top: 12%;
+}
+.about p{
+    position: relative;
+    top: -465px;
+    right: -9%;
+    width: 27.5%;
+    direction: ltr;
+    color: #ffff;
+    background-color: #00BCD4;
+    box-shadow: 6px 8px 10px -3px rgb(0 0 0 / 50%);
+    border-radius: 15px;
+    transition: all 0.6s ease-in-out;
+    padding: 5px;
+}
+.about p:hover{
+    right: -15%;
+    
+}
+/* Footer stylse */
+footer{
+    text-align: center;
+    background-color: #00BCD4;
+    color: #ffff;
+}
