@@ -1,0 +1,7 @@
+Start
+     Read a variable values hours and rate
+          Multiply hours*rate all in 30 in the All variable
+          Multiply All variable * 15 all division on 100 in the Sell variable
+          difference Sell variable from all variable in the gross variable
+                Display gross variable
+End
