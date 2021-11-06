@@ -1,0 +1,12 @@
+Start
+ read a num1
+ read a num2
+       sumed num1 and num2 in the sum variable
+       difference num1 from num2 in the diff variable
+       multiply num1 in num2 in the mul variabe
+       Divide num1 by num2 in the quo variable
+	print a sum variable
+	print a diff variable
+	print a mul variable
+	print a quo varible
+End
