@@ -1,7 +1,0 @@
-Start
-     Display "Enter the rectangle width and height "
-     Read a variable values w and h
-          Multiply w*h in the Area variable
-          Multiply  w plus h in 2  in the Perimeter variable
-                 Print an Area and a Perimeter variables
-End
