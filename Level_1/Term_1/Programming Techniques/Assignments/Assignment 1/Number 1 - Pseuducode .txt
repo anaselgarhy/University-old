@@ -1,0 +1,8 @@
+Start
+     Display "Enter 3 Numbers"
+     Read a  variable values x and y and z
+           Sumed x and y and z  in the Sum variable
+           Divide Variable Sum  by 3 in the Average variable
+           Multiply x*y*z in the Product variable
+                Display a Sum and an Average and a Product variables
+End

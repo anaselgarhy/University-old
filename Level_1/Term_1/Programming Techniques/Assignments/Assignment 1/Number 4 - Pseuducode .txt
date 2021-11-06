@@ -1,0 +1,5 @@
+Start
+     Read a variable value F
+          difference 32 from F variable All multiplied by 5/9 in the Convert variable
+                Display Convert variable
+End
