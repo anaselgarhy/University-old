@@ -2,6 +2,10 @@ package com.anas.code.simplecalc;
 
 import javafx.scene.control.Alert;
 
+/**
+ * @author <a href="https://github.com/Anas-Elgarhy">Anas-Elgarhy</a>
+ * at 2022-01-06
+ */
 public class Helpers {
     /**
      * Add the actions' listener to the buttons in the grid nodes

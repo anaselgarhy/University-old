@@ -6,7 +6,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
-
+/**
+ * @author <a href="https://github.com/Anas-Elgarhy">Anas-Elgarhy</a>
+ * at 2022-01-06
+ */
 public class CalcNode extends GridPane {
     private final TextField textField1, textField2;
     private final Label opLabel, resultLabel;

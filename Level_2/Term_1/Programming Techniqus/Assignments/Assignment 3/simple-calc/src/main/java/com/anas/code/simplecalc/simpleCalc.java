@@ -8,6 +8,10 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+/**
+ * @author <a href="https://github.com/Anas-Elgarhy">Anas-Elgarhy</a>
+ * at 2022-01-06
+ */
 
 public class simpleCalc extends Application  {
     private final CalcNode[] calcNodes = new CalcNode[4];
