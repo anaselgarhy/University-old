@@ -23,8 +23,8 @@ public class simpleCalc extends Application  {
         grid.setPadding(new Insets(10, 10, 10, 10)); // Set the padding of the grid
 
         // Create scene and place it in the stage
-        Scene scene = new Scene(grid);
-        stage.setScene(scene);
+        Scene scene = new Scene(grid); // Create a scene
+        stage.setScene(scene); // Place the scene in the stage
 
         // Add the nodes to the grid
         addNodes(grid);
