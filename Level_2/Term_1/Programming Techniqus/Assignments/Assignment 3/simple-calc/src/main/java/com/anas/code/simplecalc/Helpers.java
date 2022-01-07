@@ -14,8 +14,8 @@ public class Helpers {
     public static void addActionsHandlers(CalcNode[] nodes) {
         // Add actions handlers to all nodes
         for (CalcNode node : nodes) {
-            switch (node.getOpLabel().getText()) {
-                case "+" -> node.getEqualsButton().setOnAction((event) -> { // Addition button
+            switch (node.getOperation()) {
+                case ADDITION -> node.getEqualsButton().setOnAction((event) -> { // Addition button
                     try {
                         node.getResultLabel().setText(String.valueOf(node.getNum1() + node.getNum2()));
                     } catch (NumberFormatException e) {
@@ -23,7 +23,7 @@ public class Helpers {
                         showErrorMessage("Invalid number, please enter a valid number");
                     }
                 });
-                case "-" -> node.getEqualsButton().setOnAction((event) -> { // Subtraction button
+                case SUBTRACTION -> node.getEqualsButton().setOnAction((event) -> { // Subtraction button
                     try {
                         node.getResultLabel().setText(String.valueOf(node.getNum1() - node.getNum2()));
                     } catch (NumberFormatException e) {
@@ -31,7 +31,7 @@ public class Helpers {
                         showErrorMessage("Invalid number, please enter a valid number");
                     }
                 });
-                case "*" -> node.getEqualsButton().setOnAction((event) -> { // Multiplication button
+                case MULTIPLICATION -> node.getEqualsButton().setOnAction((event) -> { // Multiplication button
                     try {
                         node.getResultLabel().setText(String.valueOf(node.getNum1() * node.getNum2()));
                     } catch (NumberFormatException e) {
@@ -39,7 +39,7 @@ public class Helpers {
                         showErrorMessage("Invalid number, please enter a valid number");
                     }
                 });
-                case "/" -> node.getEqualsButton().setOnAction((event) -> { // Division button
+                case DIVISION -> node.getEqualsButton().setOnAction((event) -> { // Division button
                     try {
                         node.getResultLabel().setText(String.valueOf(node.getNum1() / node.getNum2()));
 

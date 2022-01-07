@@ -1,5 +1,6 @@
 package com.anas.code.simplecalc;
 
+import com.anas.code.simplecalc.enums.OP;
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -64,7 +65,7 @@ public class simpleCalc extends Application  {
     }
 
     private void addCalculator(GridPane grid) {
-        char[] operators = {'+', '-', '*', '/'}; // Create an array of 4 operators (+, -, *, /)
+        OP[] operators = OP.values(); // Create an array of 4 operators (+, -, *, /)
 
         // Create the calculator nodes and add them to the grid
         for (int i = 0; i < operators.length; i++) {

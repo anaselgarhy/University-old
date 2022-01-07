@@ -1,5 +1,6 @@
 package com.anas.code.simplecalc;
 
+import com.anas.code.simplecalc.enums.OP;
 import javafx.geometry.HPos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -14,14 +15,16 @@ public class CalcNode extends GridPane {
     private final TextField textField1, textField2;
     private final Label opLabel, resultLabel;
     private final Button equalsButton;
+    private final OP operation;
 
     // Constructor
-    public CalcNode(char op, double hgap) {
+    public CalcNode(OP op, double hgap) {
         textField1 = new TextField();
         textField2 = new TextField();
-        opLabel = new Label(String.valueOf(op));
+        opLabel = new Label(String.valueOf(op.getSymbol()));
         resultLabel = new Label();
         equalsButton = new Button("=");
+        operation = op;
 
         // Set up the grid pane
         setUp(hgap);
@@ -71,5 +74,9 @@ public class CalcNode extends GridPane {
 
     public Button getEqualsButton() {
         return equalsButton;
+    }
+
+    public OP getOperation() {
+        return operation;
     }
 }
