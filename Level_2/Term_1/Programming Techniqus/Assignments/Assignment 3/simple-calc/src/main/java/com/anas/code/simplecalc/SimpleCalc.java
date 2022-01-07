@@ -14,7 +14,7 @@ import javafx.stage.Stage;
  * at 2022-01-06
  */
 
-public class simpleCalc extends Application  {
+public class SimpleCalc extends Application  {
     private final CalcNode[] calcNodes = new CalcNode[4];
     @Override
     public void start(Stage stage) {
