@@ -48,7 +48,7 @@ then
 
   # Create the script
   # Crete the variables names array
-  var_names=("num" "Num" "Number_" "Num" "n" "N")
+  var_names=("num" "Num" "Number_" "Num" "n" "N" "NUM" "NUMBER_" "NUMBER" "NUM_" "num_" "n_" "N_" "Num_")
   # Get random index
   rand_index=$((RANDOM % ${#var_names[@]}))
   # Get random variable name
