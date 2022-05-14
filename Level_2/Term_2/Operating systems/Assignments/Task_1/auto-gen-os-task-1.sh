@@ -8,18 +8,19 @@ then
 
   req_pkgs="zip scrot cowsay"
   # Install the required packages
-  if [[ $distro == "Ubuntu" || $distro == "Debian" ]]
+  echo "----------------- Installing required packages -----------------"
+  if [[ "$distro" == "Ubuntu" || "$distro" == "Debian" ]]
   then
-    apt-get install -y $req_pkgs
-  elif [[ $distro == "Arch" || $distro == "Manjaro" ]]
+    sudo apt-get install -y $req_pkgs
+  elif [[ "$distro" == "Arch" || "$distro" == "Manjaro" ]]
   then
-    pacman -S $req_pkgs
-  elif [[ $distro == "Fedora" ]]
+    sudo pacman -S $req_pkgs
+  elif [[ "$distro" == "Fedora" ]]
   then
-   dnf install -y $req_pkgs
-  elif [[ $distro == "CentOS" || $distro == "RedHat" ]]
+   sudo dnf install -y $req_pkgs
+  elif [[ "$distro" == "CentOS" || "$distro" == "RedHat" ]]
   then
-     yum install -y $req_pkgs
+    sudo yum install -y $req_pkgs
   fi
   clear
   # Get PS1
@@ -46,25 +47,33 @@ then
   scrot ~/Desktop/EELU/screenshots/1.png
 
   # Create the script
+  # Crete the variables names array
+  var_names=("num" "Num" "Number_" "Num" "n" "N")
+  # Get random index
+  rand_index=$((RANDOM % ${#var_names[@]}))
+  # Get random variable name
+  var1_name="${var_names[$rand_index]}1"
+  var2_name="${var_names[$rand_index]}2"
+
   # Get the bash path
   bash_path=$(which bash)
   # echo
   echo "#!$bash_path" > ~/Desktop/EELU/EELU.sh
-  echo "echo \"Enter the num 1: \" " >> ~/Desktop/EELU/EELU.sh
-  echo "read num1" >> ~/Desktop/EELU/EELU.sh
-  echo "echo \"Enter the num 2: \" " >> ~/Desktop/EELU/EELU.sh
-  echo "read num2" >> ~/Desktop/EELU/EELU.sh
-  echo "if [[ \$((num1 % 2)) == 1 ]]" >> ~/Desktop/EELU/EELU.sh
+  echo "echo \"Enter the $var1_name: \" " >> ~/Desktop/EELU/EELU.sh
+  echo "read $var1_name" >> ~/Desktop/EELU/EELU.sh
+  echo "echo \"Enter the $var2_name: \" " >> ~/Desktop/EELU/EELU.sh
+  echo "read $var2_name" >> ~/Desktop/EELU/EELU.sh
+  echo "if [[ \$(($var1_name % 2)) == 1 ]]" >> ~/Desktop/EELU/EELU.sh
   echo "then" >> ~/Desktop/EELU/EELU.sh
-  echo "  echo \"\$num1 is odd\"" >> ~/Desktop/EELU/EELU.sh
+  echo "  echo \"\$$var1_name is odd\"" >> ~/Desktop/EELU/EELU.sh
   echo "else" >> ~/Desktop/EELU/EELU.sh
-  echo "  echo \"\$num1 is even\"" >> ~/Desktop/EELU/EELU.sh
+  echo "  echo \"\$$var1_name is even\"" >> ~/Desktop/EELU/EELU.sh
   echo "fi" >> ~/Desktop/EELU/EELU.sh
-  echo "if [[ \$((num2 % 2)) == 1 ]]" >> ~/Desktop/EELU/EELU.sh
+  echo "if [[ \$(($var2_name % 2)) == 1 ]]" >> ~/Desktop/EELU/EELU.sh
   echo "then" >> ~/Desktop/EELU/EELU.sh
-  echo "  echo \"\$num2 is odd\"" >> ~/Desktop/EELU/EELU.sh
+  echo "  echo \"\$$var2_name is odd\"" >> ~/Desktop/EELU/EELU.sh
   echo "else" >> ~/Desktop/EELU/EELU.sh
-  echo "  echo \"\$num2 is even\"" >> ~/Desktop/EELU/EELU.sh
+  echo "  echo \"\$$var2_name is even\"" >> ~/Desktop/EELU/EELU.sh
   echo "fi" >> ~/Desktop/EELU/EELU.sh
 
   # Screenshot 2
@@ -132,7 +141,7 @@ then
   clear
   echo "I love you, but I need to have a little fun"
   sleep 2
-  cowsay "My name is $name"
+  cowsay "Linux is hard"
   cowsay -f tux "I not love you"
   sleep 1
   cowsay -f blowfish "bbbbbbbbbbb im a fish"
