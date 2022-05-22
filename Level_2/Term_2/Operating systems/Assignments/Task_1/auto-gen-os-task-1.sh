@@ -149,7 +149,7 @@ then
   cowsay -f ren "I will restart your computer now"
   sleep 1
 
-  shutdown -r now
+#  shutdown -r now
 else 
   echo "I would have thrown myself into the nearest conduit if you loved me at all"
   sleep 3
