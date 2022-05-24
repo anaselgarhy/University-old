@@ -26,9 +26,6 @@ hs_err_pid*
 *.mp4
 *.mkv
 
-# pdf
-*.pdf
-*.PDF
 
 # presintations
 *.pptx
@@ -36,11 +33,6 @@ hs_err_pid*
 
 # doc
 *.docx
-
-# images
-*.png
-*.jpg
-*.jpeg
 
 # tmp
 *.tmp
