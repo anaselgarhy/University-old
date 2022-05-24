@@ -1,0 +1,177 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Customer {
+  - username: String
+  - address: String
+  - phone: PhoneNumber
+  - email: EmailAddress
+  - password: String
+  - profilePicture: File
+
+    + Customer(username: String, address: String, phone: PhoneNumber, email: EmailAddress, password: String)
+
+    + getAddress(): String
+    + getPhone(): PhoneNumber
+    + getEmail(): EmailAddress
+    + getUsername(): String
+    + getPassword(): String
+    + getProfilePicture(): File
+
+    + setAddress(address: String): void
+    + setPhone(phone: PhoneNumber): void
+    + setEmail(email: EmailAddress): void
+    + setUsername(username: String): void
+    + setPassword(password: String): void
+    + setProfilePicture(profilePicture: File): void
+ }
+' PhoneNumber class
+ class PhoneNumber {
+    - regionCode: String
+    - localNumber: String
+
+    + PhoneNumber(regionCode: String, localNumber: String)
+    + getRegionCode(): String
+    + getLocalNumber(): String
+    + setRegionCode(regionCode: String): void
+    + setLocalNumber(localNumber: String): void
+    + isValid(): boolean
+}
+PhoneNumber --* Customer
+
+class EmailAddress {
+    - email: String
+
+    + EmailAddress(email: String)
+    + getEmail(): String
+    + setEmail(email: String): void
+    + isValid(): boolean
+}
+EmailAddress -* Customer
+
+class User extends Customer {
+    - title: String
+    - firstName: String
+    - lastName: String
+    - dateOfBirth: Date
+    - isLockingForNewJobs: boolean
+    - cv: File
+    - jobApplications: JobApplication[]
+    - skills: Skill[]
+    - education: Education[]
+    - certificates: Certificate[]
+    - languages: Language[]
+    - interests: Interest[]
+    - references: Reference[]
+
+    + User(username: String, address: String, phone: PhoneNumber, email: EmailAddress, password: String, firstName: String, lastName: String, dateOfBirth: Date, cv: File, profilePicture: File)
+
+    + getTitle(): String
+    + getFirstName(): String
+    + getLastName(): String
+    + getDateOfBirth(): Date
+    + getCv(): File
+    + getJobApplications(): JobApplication[]
+    + getSkills(): Skill[]
+    + getEducation(): Education[]
+    + getCertificates(): Certificate[]
+    + getLanguages(): Language[]
+    + getInterests(): Interest[]
+
+    + getReferences(): Reference[]
+    + setTitle(title: String): void
+    + setFirstName(firstName: String): void
+    + setLastName(lastName: String): void
+    + setDateOfBirth(dateOfBirth: Date): void
+    + setCv(cv: File): void
+
+    ' Add methods to add and remove
+    + addJobApplication(jobApplication: JobApplication): void
+    + addSkill(skill: Skill): void
+    + addEducation(education: Education): void
+    + addCertificate(certificate: Certificate): void
+    + addLanguage(language: Language): void
+    + addInterest(interest: Interest): void
+
+    + addReference(reference: Reference): void
+    + removeJobOffer(jobOffer: JobOffer): void
+    + removeJobApplication(jobApplication: JobApplication): void
+    + removeSkill(skill: Skill): void
+    + removeEducation(education: Education): void
+    + removeCertificate(certificate: Certificate): void
+    + removeLanguage(language: Language): void
+    + removeInterest(interest: Interest): void
+    + removeReference(reference: Reference): void
+}
+
+class Company extends Customer {
+    - name: String
+    - description: String
+    - website: HyperLink
+    - fellows: User[]
+    - fields: Field[]
+    - jobOffers: JobOffer[]
+    - members: User[]
+    - rating: Rating
+
+
+    + Company(name: String, username: String, address: String, phone: PhoneNumber, email: EmailAddress, password: String, name: String, description: String, website: HyperLink, profilePicture: File)
+
+    + getName(): String
+    + getDescription(): String
+    + getWebsite(): HyperLink
+    + getFellows(): User[]
+    + getFields(): Field[]
+    + getJobOffers(): JobOffer[]
+    + getMembers(): User[]
+    + getRating(): Rating
+
+    + setName(name: String): void
+    + setDescription(description: String): void
+    + setWebsite(website: HyperLink): void
+    + setRating(rating: Rating): void
+
+    + addFellow(fellow: User): void
+    + addField(field: Field): void
+    + addJobOffer(jobOffer: JobOffer): void
+    + addMember(member: User): void
+
+    + removeFellow(fellow: User): void
+    + removeField(field: Field): void
+    + removeJobOffer(jobOffer: JobOffer): void
+    + removeMember(member: User): void
+}
+
+class Skill {
+    - name: String
+    - level: String
+    - description: String
+
+    + Skill(name: String, level: String, description: String)
+    + getName(): String
+    + getLevel(): String
+    + getDescription(): String
+    + setName(name: String): void
+    + setLevel(level: String): void
+    + setDescription(description: String): void
+}
+Skill -* User
+
+class Education {
+    - name: String
+    - level: String
+    - gpa: double
+    - description: String
+
+    + Education(name: String, level: String, description: String)
+    + getName(): String
+    + getLevel(): String
+    + getDescription(): String
+    + setName(name: String): void
+    + setLevel(level: String): void
+    + setDescription(description: String): void
+}
+
+
+
+@enduml

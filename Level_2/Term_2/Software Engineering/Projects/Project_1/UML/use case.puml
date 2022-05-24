@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+skinparam actorStyle Hollow
+' Styling
+actor User #2a8238;line:2d7538;line.bold;text:2a8238
+actor Company #2a8238;line:2d7538;line.bold;text:2a8238
+
+' The base use cases
+rectangle "Our website" {
+    ' User
+    User -up- (Login) #blue
+    User -up- (Register) #blue
+    User -up- (Send messages) #blue
+    User -up- (Search) #blue
+    User -up- (Applied job) #blue
+    User -up- (User profile) #blue
+
+    ' Company
+    Company -down- (Job) #red
+    Company -down- (Login) #red
+    Company -down- (Register) #red
+    Company -down- (Search) #red
+    Company -down- (Company profile) #red
+    Company -down- (Send messages) #red
+
+    ' Relationships
+    (Login) .up.> (Register) : <Include>
+    (Job) .down.> (User profile) : <Include>
+    (Applied job) .down.> (Job) : <Extend>
+    (Send messages) .down.> (Login) : <Include>
+    (Search) .down.> (User profile) : <Extend>
+    (Search) .down.> (Job) : <Extend>
+    (User profile) .down.> (Login) : <Include>
+
+    (Company profile) .down.> (Login) : <Include>
+    (Job) .down.> (Company profile) : <Include>
+    (Company profile) .down.> (Search) : <Extend>
+}
+@enduml
