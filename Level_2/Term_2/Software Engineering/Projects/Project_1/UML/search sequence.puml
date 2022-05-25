@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+' autonumber
+actor "User" as user
+activate user
+user -> "Search page" : Type job title or company name
+activate "Search page"
+
+user -> "Search page" : Click search button
+"Search page" -> "Search results page" : Display search results
+
+activate "Search results page"
+"Search page" --> user : Search keyword is empty
+
+"Search results page" --> user : Keyword is not found
+
+
+@enduml

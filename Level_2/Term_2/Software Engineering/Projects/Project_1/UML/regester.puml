@@ -1,13 +1,19 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
+autonumber
 actor User as "User"
 
-User -> Register : "User enter the register information"
-Register --> User : "User enter not correct register information"
+activate User
+User -> Register : User enter the register information
 
-Register -> "Get more information"
+activate Register
+Register --> User : User enter not correct register information
 
-"Get more information" --> Profile : "User enter the "Get more information or Press Skip button"
+activate "Get more information"
+Register -> "Get more information" : Redirect the user to a page
+
+activate Profile
+"Get more information" -> Profile : User enter the "Get more information or Press Skip button
 
 @enduml
