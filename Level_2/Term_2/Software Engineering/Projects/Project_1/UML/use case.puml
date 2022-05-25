@@ -9,16 +9,15 @@ actor Company #2a8238;line:2d7538;line.bold;text:2a8238
 rectangle "Our website" {
     ' User
     User -up- (Login) #blue
-    User -up- (Register) #blue
     User -up- (Send messages) #blue
     User -up- (Search) #blue
     User -up- (Applied job) #blue
     User -up- (User profile) #blue
+    User -up- (Logout) #blue
 
     ' Company
     Company -down- (Job) #red
-    Company -down- (Login) #red
-    Company -down- (Register) #red
+    ' Company -down- (Login) #red
     Company -down- (Search) #red
     Company -down- (Company profile) #red
     Company -down- (Send messages) #red
@@ -27,13 +26,13 @@ rectangle "Our website" {
     (Login) .up.> (Register) : <Include>
     (Job) .down.> (User profile) : <Include>
     (Applied job) .down.> (Job) : <Extend>
-    (Send messages) .down.> (Login) : <Include>
-    (Search) .down.> (User profile) : <Extend>
+    ' (Send messages) .down.> (Login) : <Include>
+    ' (Search) .down.> (User profile) : <Extend>
     (Search) .down.> (Job) : <Extend>
-    (User profile) .down.> (Login) : <Include>
+    ' (User profile) .down.> (Login) : <Include>
 
     (Company profile) .down.> (Login) : <Include>
-    (Job) .down.> (Company profile) : <Include>
+    ' (Job) .down.> (Company profile) : <Include>
     (Company profile) .down.> (Search) : <Extend>
 }
 @enduml

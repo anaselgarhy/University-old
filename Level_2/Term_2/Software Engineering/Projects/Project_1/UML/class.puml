@@ -1,7 +1,7 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-' skinparam classAttributeIconSize 0
+skinparam classAttributeIconSize 0
 
 abstract class Customer {
   - username: String
