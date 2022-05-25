@@ -1,6 +1,8 @@
 @startuml
 'https://plantuml.com/class-diagram
 
+' skinparam classAttributeIconSize 0
+
 abstract class Customer {
   - username: String
   - address: String
@@ -9,15 +11,16 @@ abstract class Customer {
   - password: String
   - profilePicture: File
 
+--
     + Customer(username: String, address: String, phone: PhoneNumber, email: EmailAddress, password: String)
-
+.. Getters ..
     + getAddress(): String
     + getPhone(): PhoneNumber
     + getEmail(): EmailAddress
     + getUsername(): String
     + getPassword(): String
     + getProfilePicture(): File
-
+.. Setters ..
     + setAddress(address: String): void
     + setPhone(phone: PhoneNumber): void
     + setEmail(email: EmailAddress): void
@@ -47,7 +50,7 @@ class EmailAddress {
     + setEmail(email: String): void
     + isValid(): boolean
 }
-EmailAddress -* Customer
+EmailAddress --* Customer
 
 class User extends Customer {
     - title: String
@@ -64,8 +67,9 @@ class User extends Customer {
     - interests: Interest[]
     - references: Reference[]
 
+--
     + User(username: String, address: String, phone: PhoneNumber, email: EmailAddress, password: String, firstName: String, lastName: String, dateOfBirth: Date, cv: File, profilePicture: File)
-
+.. Getters ..
     + getTitle(): String
     + getFirstName(): String
     + getLastName(): String
@@ -77,22 +81,22 @@ class User extends Customer {
     + getCertificates(): Certificate[]
     + getLanguages(): Language[]
     + getInterests(): Interest[]
-
     + getReferences(): Reference[]
+.. Setters ..
     + setTitle(title: String): void
     + setFirstName(firstName: String): void
     + setLastName(lastName: String): void
     + setDateOfBirth(dateOfBirth: Date): void
     + setCv(cv: File): void
-
     ' Add methods to add and remove
+-- Add methods to add and remove --
     + addJobApplication(jobApplication: JobApplication): void
     + addSkill(skill: Skill): void
     + addEducation(education: Education): void
     + addCertificate(certificate: Certificate): void
     + addLanguage(language: Language): void
     + addInterest(interest: Interest): void
-
+..
     + addReference(reference: Reference): void
     + removeJobOffer(jobOffer: JobOffer): void
     + removeJobApplication(jobApplication: JobApplication): void
@@ -113,10 +117,9 @@ class Company extends Customer {
     - jobOffers: JobOffer[]
     - members: User[]
     - rating: Rating
-
-
+--
     + Company(name: String, username: String, address: String, phone: PhoneNumber, email: EmailAddress, password: String, name: String, description: String, website: HyperLink, profilePicture: File)
-
+.. Getters ..
     + getName(): String
     + getDescription(): String
     + getWebsite(): HyperLink
@@ -125,53 +128,103 @@ class Company extends Customer {
     + getJobOffers(): JobOffer[]
     + getMembers(): User[]
     + getRating(): Rating
-
+.. Setters ..
     + setName(name: String): void
     + setDescription(description: String): void
     + setWebsite(website: HyperLink): void
     + setRating(rating: Rating): void
-
+-- Add methods to add and remove --
     + addFellow(fellow: User): void
     + addField(field: Field): void
     + addJobOffer(jobOffer: JobOffer): void
     + addMember(member: User): void
-
+..
     + removeFellow(fellow: User): void
     + removeField(field: Field): void
     + removeJobOffer(jobOffer: JobOffer): void
     + removeMember(member: User): void
 }
 
-class Skill {
+class profilefields.Skill {
     - name: String
     - level: String
     - description: String
-
+--
     + Skill(name: String, level: String, description: String)
+..
     + getName(): String
     + getLevel(): String
     + getDescription(): String
+..
     + setName(name: String): void
     + setLevel(level: String): void
     + setDescription(description: String): void
 }
-Skill -* User
+profilefields.Skill -* User
 
-class Education {
+class profilefields.Education {
     - name: String
     - level: String
     - gpa: double
     - description: String
-
-    + Education(name: String, level: String, description: String)
+    - startDate: Date
+    - endDate: Date
+--
+    + Education(name: String, level: String, description: String, startDate: Date, endDate: Date)
+..
     + getName(): String
     + getLevel(): String
     + getDescription(): String
+..
     + setName(name: String): void
     + setLevel(level: String): void
     + setDescription(description: String): void
 }
+profilefields.Education --* User
 
+class profilefields.Certificate {
+    - name: String
+    - description: String
+    - giverCompany: Company
+    - date: Date
+    - attachment: Attachment
+    - id: String
+    - expirationDate: Date
+--
+    + Certificate(name: String, description: String, giverCompany: Company, date: Date, attachment: Attachment, id: String)
+..
+    + getName(): String
+    + getDescription(): String
+    + getGiverCompany(): Company
+    + getDate(): Date
+    + getAttachment(): Attachment
+    + getId(): String
+    + getExpirationDate(): Date
+..
+    + setName(name: String): void
+    + setDescription(description: String): void
+    + setGiverCompany(giverCompany: Company): void
+    + setDate(date: Date): void
+    + setAttachment(attachment: Attachment): void
+    + setId(id: String): void
+    + setExpirationDate(expirationDate: Date): void
+..
+    + isExpired(): boolean
+}
+profilefields.Certificate --* User
+Company --* profilefields.Certificate
+
+class Attachment {
+    - attachmentLink: HyperLink
+    - attachmentFile: File
+--
+    + Attachment(attachmentLink: HyperLink)
+    + Attachment(attachmentFile: File)
+..
+    + getAttachmentLink(): HyperLink
+    + getAttachmentFile(): File
+}
+Attachment --* profilefields.Certificate
 
 
 @enduml
