@@ -116,7 +116,7 @@ class Company extends Customer {
     - fields: Field[]
     - jobOffers: JobOffer[]
     - members: User[]
-    - rating: Rating
+    - ratings: Rating[]
 --
     + Company(name: String, username: String, address: String, phone: PhoneNumber, email: EmailAddress, password: String, name: String, description: String, website: HyperLink, profilePicture: File)
 .. Getters ..
@@ -127,22 +127,23 @@ class Company extends Customer {
     + getFields(): Field[]
     + getJobOffers(): JobOffer[]
     + getMembers(): User[]
-    + getRating(): Rating
+    + getRatings(): Rating[]
 .. Setters ..
     + setName(name: String): void
     + setDescription(description: String): void
     + setWebsite(website: HyperLink): void
-    + setRating(rating: Rating): void
 -- Add methods to add and remove --
     + addFellow(fellow: User): void
     + addField(field: Field): void
     + addJobOffer(jobOffer: JobOffer): void
     + addMember(member: User): void
+    + addRating(rating: Rating): void
 ..
     + removeFellow(fellow: User): void
     + removeField(field: Field): void
     + removeJobOffer(jobOffer: JobOffer): void
     + removeMember(member: User): void
+    + removeRating(rating: Rating): void
 }
 
 class profilefields.Skill {
@@ -226,5 +227,99 @@ class Attachment {
 }
 Attachment --* profilefields.Certificate
 
+class HyperLink {
+    - link: String
+--
+    + HyperLink(link: String)
+..
+    + getLink(): String
+    + setLink(link: String): void
+..
+    + isValid(): boolean
+    + getTopLevelDomain(): String
+    + getDomain(): String
+    + getSubDomain(): String
+}
+
+HyperLink -* Attachment
+HyperLink --* Company
+
+abstract class AbstractProperty {
+    - name: String
+    - description: String
+--
+    + AbstractProperty(name: String, description: String)
+..
+    + getName(): String
+    + getDescription(): String
+..
+    + setName(name: String): void
+    + setDescription(description: String): void
+}
+
+class Field extends AbstractProperty {
+    - tags: Tag[]
+
+    + Field(name: String, description: String)
+..
+    + getTags(): Tag[]
+..
+    + addTag(tag: Tag): void
+    + removeTag(tag: Tag): void
+}
+
+Field --* Company
+
+class JobOffer extends AbstractProperty {
+    - salary: double
+    - location: String
+    - startDate: Date
+    - endDate: Date
+    - company: Company
+    - tags: Tag[]
+    - jobApplications: JobApplication[]
+
+--
+    + JobOffer(title: String, description: String, salary: double, location: String, startDate: Date, endDate: Date, company: Company)
+.. Getters ..
+    + getSalary(): double
+    + getLocation(): String
+    + getStartDate(): Date
+    + getEndDate(): Date
+    + getCompany(): Company
+    + getTags(): Tag[]
+    + getJobApplications(): JobApplication[]
+.. Setters ..
+    + setSalary(salary: double): void
+    + setLocation(location: String): void
+    + setStartDate(startDate: Date): void
+    + setEndDate(endDate: Date): void
+    + setCompany(company: Company): void
+}
+JobOffer --* Company
+Field --* JobOffer
+
+class Tag extends AbstractProperty {
+
+}
+Field *-- Tag
+JobOffer --* Tag
+
+class Rating {
+    - rating: float
+    - comment: String
+    - user: User
+--
+    + Rating(rating: float, comment: String, user: User)
+..
+    + getRating(): float
+    + getComment(): String
+    + getUser(): User
+..
+    + setRating(rating: float): void
+    + setComment(comment: String): void
+    + setUser(user: User): void
+}
+Rating --* Company
 
 @enduml
